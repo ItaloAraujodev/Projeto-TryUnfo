@@ -7,53 +7,72 @@ class App extends React.Component {
     super();
 
     this.state = {
-      name: '',
-      description: '',
-      atributo1: '',
-      atributo2: '',
-      atributo3: '',
-      image: '',
-      raro: '',
-      checkboxInput: false,
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: '',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
     };
+  }
+
+  conditionSaved = () => {
+    const numberMax = 210;
+    const numberMin = 90;
+    const { cardName, cardDescription, cardImage, cardRare } = this.state;
+    const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    const Att1 = Number(cardAttr1) >= 0 && Number(cardAttr1) <= numberMin;
+    const Att2 = Number(cardAttr2) >= 0 && Number(cardAttr2) <= numberMin;
+    const Att3 = Number(cardAttr3) >= 0 && Number(cardAttr3) <= numberMin;
+    const text = cardName !== '' && cardDescription !== '' && cardImage !== '';
+    const text2 = cardRare !== '';
+    const numMax = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) <= numberMax;
+
+    this.setState({
+      isSaveButtonDisabled: !(text && numMax && Att1 && Att2 && Att3 && text2),
+    });
   }
 
   onInputChange = ({ target }) => {
     const { name, value, type, checked } = target;
     this.setState({
       [name]: type === 'checkbox' ? checked : value,
-    });
+    }, () => this.conditionSaved());
   }
 
   render() {
-    const { name, description, atributo1, atributo2, atributo3, image } = this.state;
-    const { raro, checkboxInput } = this.state;
-
     return (
       <div>
         <h1>Tryunfo</h1>
         <div className="container-geral">
           <Form
-            cardName={ name }
-            cardDescription={ description }
-            cardAttr1={ atributo1 }
-            cardAttr2={ atributo2 }
-            cardAttr3={ atributo3 }
-            cardImage={ image }
-            cardRare={ raro }
-            cardTrunfo={ checkboxInput }
+            { ...this.state }
             onInputChange={ this.onInputChange }
+            /*  cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+            onInputChange={ this.onInputChange } */
           />
 
           <Card
-            cardName={ name }
-            cardDescription={ description }
-            cardAttr1={ atributo1 }
-            cardAttr2={ atributo2 }
-            cardAttr3={ atributo3 }
-            cardRare={ raro }
-            cardTrunfo={ checkboxInput }
-            cardImage={ image }
+            { ...this.state }
+
+            /* cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo } */
           />
 
         </div>
