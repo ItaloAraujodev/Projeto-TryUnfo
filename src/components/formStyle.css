@@ -1,25 +1,25 @@
-
-.form-itens{
-    width: 300px;
-    margin: 0 auto;
-    border: 2px solid blue;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+.form-itens {
+  border: 2px solid blue;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
 }
 
 .text-area {
-    width: 270px;
-    height: 60px;
-    resize: none;
+  height: 60px;
+  resize: none;
+  width: 270px;
 }
 
 .container-geral {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
+
 .container-card-pre {
-    border: 2px solid red;
-    width: 300px;
-    margin-left: 20px;
+  border: 2px solid red;
+  margin-left: 20px;
+  width: 300px;
 }
