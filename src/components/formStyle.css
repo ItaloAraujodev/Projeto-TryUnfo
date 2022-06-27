@@ -1,0 +1,25 @@
+
+.form-itens{
+    width: 300px;
+    margin: 0 auto;
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.text-area {
+    width: 270px;
+    height: 60px;
+    resize: none;
+}
+
+.container-geral {
+    display: flex;
+    justify-content: center;
+}
+.container-card-pre {
+    border: 2px solid red;
+    width: 300px;
+    margin-left: 20px;
+}
