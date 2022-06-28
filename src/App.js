@@ -83,10 +83,10 @@ class App extends React.Component {
   };
 
   render() {
-    const { hasTrunfo } = this.state;
+    const { hasTrunfo, cartasState } = this.state;
     return (
       <div>
-        <h1>Tryunfo</h1>
+        <h1 className="title">Tryunfo</h1>
         <div className="container-geral">
           <Form
             { ...this.state }
@@ -94,10 +94,25 @@ class App extends React.Component {
             hasTrunfo={ hasTrunfo }
             onSaveButtonClick={ this.onSaveButtonClick }
           />
-
           <Card
             { ...this.state }
           />
+        </div>
+        <h2>Todas as cartas</h2>
+        <div className="carta-clone">
+          { cartasState.map((item) => (
+            <Card
+              key={ item.cardName }
+              cardName={ item.cardName }
+              cardDescription={ item.cardDescription }
+              cardAttr1={ item.cardAttr1 }
+              cardAttr2={ item.cardAttr2 }
+              cardAttr3={ item.cardAttr3 }
+              cardImage={ item.cardImage }
+              cardRare={ item.cardRare }
+              cardTrunfo={ item.cardTrunfo }
+            />
+          ))}
         </div>
       </div>
     );
