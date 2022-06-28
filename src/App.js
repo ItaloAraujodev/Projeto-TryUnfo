@@ -9,13 +9,14 @@ class App extends React.Component {
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
+      cartasState: [],
     };
   }
 
@@ -34,14 +35,55 @@ class App extends React.Component {
     this.setState({
       isSaveButtonDisabled: !(text && numMax && Att1 && Att2 && Att3 && text2),
     });
+  };
+
+  onSaveButtonClick = () => {
+    const { cardName, cardDescription, cardImage, cardRare } = this.state;
+    const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    const array = [
+      'cardName',
+      'cardDescription',
+      'cardImage',
+      'cardRare',
+      'cardAttr1',
+      'cardAttr2',
+      'cardAttr3',
+      'isSaveButtonDisabled',
+    ];
+
+    const cartas = {
+      cardName,
+      cardDescription,
+      cardImage,
+      cardRare,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+    };
+    this.setState((prevState) => ({
+      cartasState: [...prevState.cartasState, cartas],
+    }), () => {
+      array.forEach((item) => {
+        if (item === 'isSaveButtonDisabled') {
+          this.setState({ [item]: true });
+        } else if (item === 'cardAttr1' || item === 'cardAttr2' || item === 'cardAttr3') {
+          this.setState({ [item]: '0' });
+        } else {
+          this.setState({ [item]: '' });
+        }
+      });
+    });
   }
 
   onInputChange = ({ target }) => {
     const { name, value, type, checked } = target;
-    this.setState({
-      [name]: type === 'checkbox' ? checked : value,
-    }, () => this.conditionSaved());
-  }
+    this.setState(
+      {
+        [name]: type === 'checkbox' ? checked : value,
+      },
+      () => this.conditionSaved(),
+    );
+  };
 
   render() {
     return (
@@ -51,9 +93,10 @@ class App extends React.Component {
           <Form
             { ...this.state }
             onInputChange={ this.onInputChange }
+            onSaveButtonClick={ this.onSaveButtonClick }
             /*  cardName={ cardName }
             cardDescription={ cardDescription }
-            cardAttr1={ cardAttr1 }
+            cardAttr1={ cardAttr1 }a
             cardAttr2={ cardAttr2 }
             cardAttr3={ cardAttr3 }
             cardImage={ cardImage }
@@ -74,7 +117,6 @@ class App extends React.Component {
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo } */
           />
-
         </div>
       </div>
     );

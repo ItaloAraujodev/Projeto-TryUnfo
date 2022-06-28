@@ -1,16 +1,32 @@
+.container-form {
+  border: 5px solid cornflowerblue;
+}
+
+.title {
+  text-align: center;
+}
+
 .form-itens {
   border: 2px solid blue;
   display: flex;
   flex-direction: column;
+  height: 500px;
   margin: 0 auto;
-  text-align: center;
-  width: 300px;
+  padding: 20px;
+  width: 350px;
+}
+
+.container-card-pre {
+  border: 2px solid red;
+  height: 450px;
+  margin-left: 20px;
+  width: 350px;
 }
 
 .text-area {
-  height: 60px;
+  height: 70px;
   resize: none;
-  width: 270px;
+  width: 97%;
 }
 
 .container-geral {
@@ -18,8 +34,11 @@
   justify-content: center;
 }
 
-.container-card-pre {
-  border: 2px solid red;
-  margin-left: 20px;
-  width: 300px;
+input {
+  margin-top: 5px;
+}
+
+.input-geral {
+  padding: 8px;
+  width: 70%;
 }

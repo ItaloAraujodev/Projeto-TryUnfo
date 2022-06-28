@@ -11,15 +11,16 @@ class Form extends React.Component {
     return (
       <div className="container-form">
         <form className="form-itens" action="">
-          <h2>Adicionar nova carta</h2>
+          <h2 className="title">Adicionar nova carta</h2>
           <label htmlFor="name-input">
-            <h4>Nome da carta:</h4>
             <input
               id="name-input"
+              className="input-geral"
               data-testid="name-input"
               type="text"
               name="cardName"
               value={ cardName }
+              placeholder="Digite o nome da carta"
               onChange={ onInputChange }
             />
           </label>
@@ -39,8 +40,9 @@ class Form extends React.Component {
           </label>
 
           <label htmlFor="attr1-input">
-            <span>Atributo 1: </span>
+            <span className="raridadeStyle">Atributo 1: </span>
             <input
+              className="input-geral"
               id="attr1-input"
               data-testid="attr1-input"
               name="cardAttr1"
@@ -54,6 +56,7 @@ class Form extends React.Component {
             <span>Atributo 2: </span>
             <input
               id="attr2-input"
+              className="input-geral"
               data-testid="attr2-input"
               name="cardAttr2"
               type="number"
@@ -66,6 +69,7 @@ class Form extends React.Component {
             <span>Atributo 3: </span>
             <input
               id="attr3-input"
+              className="input-geral"
               data-testid="attr3-input"
               name="cardAttr3"
               type="number"
@@ -77,6 +81,7 @@ class Form extends React.Component {
           <label htmlFor="image-input">
             <span>Imagem: </span>
             <input
+              className="input-geral"
               id="image-input"
               name="cardImage"
               data-testid="image-input"
@@ -88,9 +93,10 @@ class Form extends React.Component {
           </label>
 
           <label htmlFor="rare-input">
-            <p>Raridade</p>
+            <span>Raridade: </span>
             <select
               id="rare-input"
+              className="input-geral"
               data-testid="rare-input"
               name="cardRare"
               value={ cardRare }
@@ -99,6 +105,7 @@ class Form extends React.Component {
               <option value="normal">Normal</option>
               <option value="raro">Raro</option>
               <option value="muito raro">Muito raro</option>
+
             </select>
           </label>
 
