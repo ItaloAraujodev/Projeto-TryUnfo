@@ -121,7 +121,7 @@ class Form extends React.Component {
                   checked={ cardTrunfo }
                   onChange={ onInputChange }
                 />
-              </label>) : <p> Voce já tem um Super Trunfo em seu baralho</p> }
+              </label>) : <p>Você já tem um Super Trunfo em seu baralho</p> }
 
           <button
             data-testid="save-button"
