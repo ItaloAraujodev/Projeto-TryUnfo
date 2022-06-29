@@ -72,6 +72,21 @@ class App extends React.Component {
     });
   }
 
+  /* Essa função cria um novo array com o elemento filtrado */
+  deletedCard = (item) => {
+    this.setState((prevState) => ({
+      cartasState: prevState.cartasState
+        .filter(({ cardName }) => cardName !== item),
+    }), () => {
+      const { cartasState } = this.state;
+      this.setState({
+        hasTrunfo: cartasState.some(({ hasTrunfo }) => hasTrunfo),
+        cardTrunfo: false,
+      });
+    });
+  }
+  /* -------------------------------------------------------------- */
+
   onInputChange = ({ target }) => {
     const { name, value, type, checked } = target;
     this.setState(
@@ -86,7 +101,7 @@ class App extends React.Component {
     const { hasTrunfo, cartasState } = this.state;
     return (
       <div>
-        <h1 className="title">Tryunfo</h1>
+        <h1 className="title">Project Tryunfo</h1>
         <div className="container-geral">
           <Form
             { ...this.state }
@@ -101,17 +116,30 @@ class App extends React.Component {
         <h2>Todas as cartas</h2>
         <div className="carta-clone">
           { cartasState.map((item) => (
-            <Card
+            <div
               key={ item.cardName }
-              cardName={ item.cardName }
-              cardDescription={ item.cardDescription }
-              cardAttr1={ item.cardAttr1 }
-              cardAttr2={ item.cardAttr2 }
-              cardAttr3={ item.cardAttr3 }
-              cardImage={ item.cardImage }
-              cardRare={ item.cardRare }
-              cardTrunfo={ item.cardTrunfo }
-            />
+              className="cardRender"
+            >
+              <Card
+                cardName={ item.cardName }
+                cardDescription={ item.cardDescription }
+                cardAttr1={ item.cardAttr1 }
+                cardAttr2={ item.cardAttr2 }
+                cardAttr3={ item.cardAttr3 }
+                cardImage={ item.cardImage }
+                cardRare={ item.cardRare }
+                cardTrunfo={ item.cardTrunfo }
+              />
+
+              <button
+                className="deleted"
+                data-testid="delete-button"
+                type="button"
+                onClick={ () => this.deletedCard(item.cardName) }
+              >
+                Excluir
+              </button>
+            </div>
           ))}
         </div>
       </div>
