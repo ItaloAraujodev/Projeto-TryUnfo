@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
+import tryUnfo from './assents/logo.png';
 
 class App extends React.Component {
   constructor() {
@@ -46,6 +47,7 @@ class App extends React.Component {
   onSaveButtonClick = () => {
     const { cardName, cardDescription, cardImage, cardRare } = this.state;
     const { cardAttr1, cardAttr2, cardAttr3, cardTrunfo } = this.state;
+    console.log('Chamou')
     const cartas = {
       cardName,
       cardDescription,
@@ -67,6 +69,7 @@ class App extends React.Component {
         cardAttr1: '0',
         cardAttr2: '0',
         cardAttr3: '0',
+        cardTrunfo: false,
         hasTrunfo: this.trunfo(),
       });
     });
@@ -100,26 +103,33 @@ class App extends React.Component {
   render() {
     const { hasTrunfo, cartasState } = this.state;
     return (
-      <div>
-        <h1 className="title">Project Tryunfo</h1>
-        <div className="container-geral">
-          <Form
-            { ...this.state }
-            onInputChange={ this.onInputChange }
-            hasTrunfo={ hasTrunfo }
-            onSaveButtonClick={ this.onSaveButtonClick }
-          />
-          <Card
-            { ...this.state }
-          />
+      <div className="container-fluid bg shadow">
+        <img src={ tryUnfo } alt="logo" className="logo-img" />
+        <div className="container d-flex justify-content-center mt-5 rounded preview">
+          <div className="me-5">
+            <Form
+              { ...this.state }
+              onInputChange={ this.onInputChange }
+              hasTrunfo={ hasTrunfo }
+              onSaveButtonClick={ this.onSaveButtonClick }
+            />
+          </div>
+          <div>
+          <h2 className="title text-center m-3">Pré-Visualização</h2>
+            <Card
+              { ...this.state }
+            />
+          </div>
         </div>
-        <h2>Todas as cartas</h2>
-        <div className="carta-clone">
+        <h2 className='title-carta'>Todas as cartas</h2>
+        <div className="container">
+          <div className='row'>
           { cartasState.map((item) => (
             <div
               key={ item.cardName }
-              className="cardRender"
+              className="col"
             >
+              <div className='d-flex flex-column align-items-center mt-4'>
               <Card
                 cardName={ item.cardName }
                 cardDescription={ item.cardDescription }
@@ -139,8 +149,10 @@ class App extends React.Component {
               >
                 Excluir
               </button>
+              </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     );

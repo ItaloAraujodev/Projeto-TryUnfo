@@ -1,121 +1,247 @@
 * {
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.container-geral {
-  display: flex;
+.bg {
+  background: radial-gradient(#042f1f, #01170c);
+}
+
+.preview {
+  background-color: #FFFFFF;
 }
 
 .title {
-  text-align: center;
+  color: #2fc18c;
+  font: 26px;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.input-att {
+  height: 37px;
+  width: 275px;
+}
+
+.input-names {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.nova {
+  height: 29px;
+  width: 55px;
+}
+
+.nova-image {
+  height: 29px;
+  width: 56px;
+}
+
+.logo-img {
+  display: block;
+  height: 250px;
+  margin: auto;
+  object-fit: cover;
+  width: 300px;
+}
+
+.me-6 {
+  margin-right: 34px;
+}
+
+#textarea {
+  border: none;
+  border-bottom: 1px solid #3d495c;
+  height: 80px;
+  resize: none;
+  width: 365px;
+}
+
+.name-input {
+  border: none;
+  border-bottom: 1px solid #3d495c;
+  height: 37px;
+  width: 365px;
 }
 
 .form-container {
-  border: 2px solid red;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  padding: 20px;
-  row-gap: 8px;
-  width: 350px;
+  height: 593px;
+  width: 400px;
 }
 
-.nameCard {
-  display: flex;
-  flex-direction: column;
+.red {
+  border: 1px solid red;
 }
 
-.nameCard input {
-  border: none;
-  border-bottom: 1px solid black;
-  height: 35px;
-  margin-top: 5px;
-  width: 92%;
+.copi {
+  background: #023031;
+  height: 37px;
+  text-align: center;
+  width: 46px;
 }
 
-textarea {
-  border: none;
-  border-bottom: 1px solid black;
-  height: 60px;
-  margin-top: 5px;
-  resize: none;
-  width: 92%;
-}
-
-.atributos input {
+.input-image {
   border: 1px solid black;
-  border-radius: 3px;
-  height: 35px;
-  margin-left: 17px;
-  padding-inline: 8px;
-  width: 70%;
+  height: 37px;
+  margin-bottom: 10px;
+  width: 229px;
 }
 
-.addImage {
-  align-items: center;
-  display: flex;
-}
 
-.addImage input {
-  border: 1px solid black;
-  border-left: none;
-  height: 35px;
-  padding-inline: 8px;
-  width: 54%;
-}
-
-.cardRaridade {
-  margin-top: 5px;
-}
-
-.cardRaridade select {
-  background-color: white;
+.input-raridade {
+  background-color: #FFFFFF;
   border: none;
   border-bottom: 1px solid black;
-  height: 35px;
-  margin-top: 5px;
-  padding-inline: 8px;
-  width: 92%;
-}
-
-.cardTrunfo {
-  margin-top: 10px;
-}
-
-.cardTrunfo span {
-  margin-left: 10px;
-}
-
-.buttonSave {
-  background-color: blue;
-  border: 1px solid blue;
-  border-radius: 3px;
-  color: white;
-  cursor: pointer;
-  height: 30px;
-  margin-top: 20px;
-  width: 80px;
+  height: 37px;
+  width: 365px;
 }
 
 .icon-image {
-  background-color: rgb(20, 43, 20);
   color: white;
-  height: 35px;
-  margin-left: 16px;
-  padding: 4px;
-  text-align: center;
-  width: 40px;
+  font-size: 20px;
 }
 
-.buttonSave:disabled {
-  background-color: black;
+.ckecket-name {
+  font-size: 1rem;
+  margin: auto;
 }
 
-/* !-------  FIM - FORM --------! */
+.ckecket {
+  cursor: pointer;
+  height: 15px;
+  width: 25px;
+}
+
+input:checked {
+  background-color: #01170c;
+}
+
+.button-save {
+  background-color: #2fc18c;
+  border: none ;
+  border-radius: 2px;
+  color: #ffffff;
+  cursor: pointer;
+  height: 40px;
+  width: 115px;
+}
+
+/* !-------  CARD --------! */
 .card-container {
-  border: 2px solid blue;
   border-radius: 5px;
-  height: 350px;
+  height: 530px;
   margin: 0 auto;
-  width: 300px;
+  width: 358px;
+  border-radius: 9px;
+  box-shadow: 0px 3.89311px 18.4923px rgba(0, 0, 0, 0.25);
+}
+
+.card-contexto {
+  background-color: #036b52;
+  height: 505px;
+  width: 330px;
+  border-radius: 9px;
+}
+
+.conteudo {
+  width: 310px;
+  height: 485px;
+  border-radius: 9px;
+}
+
+.title-bg {
+  background: #023031;
+  width: 100%;
+  height: 38px;
+  border-radius: 9px 9px 0 0px;
+}
+
+.conteudo h2 {
+  color: white;
+  margin-right: 10px;
+}
+
+.description-card {
+  height: 40px;
+  width: 310px;
+  color: white;
+  overflow: auto;
+}
+
+.image {
+  width: 100%;
+  height: 240px;
+}
+
+.todos-att {
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  border-radius: 0 0 9px 9px;
+}
+
+.todos-att div {
+  width: 275px;
+  margin-bottom: 10px;
+  background-color: #e3e5e7;
+  border-radius: 9px;
+  height: 35px;
+}
+
+.todos-att div span {
+  width: 50px;
+  text-align:center;
+  height: 34px;
+  background: #023031;
+  color: white;
+  border-radius: 0px 9px 9px 0px;
+}
+
+.imagens-cards {
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 10;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 62px;
+  height: 62px;
+}
+
+/* !-------  Visualização --------! */
+
+.title-carta {
+  color: white;
+  font: 26px;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  margin: 30px 50px;
+  font-size: 2.3rem;
+}
+
+.carta-clone {
+  border: 1px solid red;
+}
+
+.deleted {
+  margin-top: 15px;
+  cursor: pointer;
+  width: 100px;
+  border: none;
+  color: white;
+  background-color: #2fc18c;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.teste {
+  border: 1px solid red;
 }
